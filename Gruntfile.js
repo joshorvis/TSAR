@@ -67,14 +67,14 @@ module.exports = function(grunt) {
 			}
 		}
 		
-		,jshint: {
+		,tslint: {
 			// define the files to lint
-			files: ['Gruntfile.js', 'src/**/*.ts', 'js/**/*.js'],
+			files: ['src/**/*.ts'],
 			//files: ['js/app.js','js/baseModules/**/*.js','js/controllerModules/**/*.js','js/modules/**/*.js','js/directiveModules/**/*.js'],
 			// configure JSHint (documented at http://www.jshint.com/docs/)
 			options: {
 				// more options here if you want to override JSHint defaults
-				globals: {
+				/*globals: {
 					jQuery: true,
 					console: true,
 					module: true
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 				laxbreak: true,
 				laxcomma: true
 				,asi: true
-				,esversion: 6
+				,esversion: 6*/
 			}
 		}
 	});
@@ -91,9 +91,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-tslint');
 
 	grunt.registerTask("build", ["ts:mainVariant","requirejs:mainVariant","uglify:mainVariant","cssmin:mainVariant"]);
-	grunt.registerTask("inspect",["jshint"]);
+	grunt.registerTask("inspect",["tslint"]);
 
 };

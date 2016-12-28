@@ -5,14 +5,14 @@
 
 import angular = require("angular");
 
-export let app = angular.module("mainApp",['testFeature'],function(){});
+export let app = angular.module("mainApp",["testFeature"], function(){});
 
-app.directive("testing",function(){
-    return{
+app.directive("testing", function(){
+    return {
         restrict: 'EA',
-        link:function(scope,element,attrs) {
+        link: function(scope, element, attrs) {
             let htmlText = "Hello world";
             element.html(htmlText);
         }
-    }
+    };
 });
