@@ -16,6 +16,10 @@ module.exports = function(grunt) {
 					,'angular-route': '../node_modules/angular-route/angular-route'
 					,'angular-resource': '../node_modules/angular-resource/angular-resource'
 					,'angular-ui-bootstrap': '../node_modules/angular-ui-bootstrap/dist/ui-bootstrap'
+
+					,'app': 'app'
+					,'testFeature.module': 'testFeature/module'
+					,'testFeature.sampleWidget': 'testFeature/sampleWidget'
 				}
 			}
 			,'main': {
@@ -35,7 +39,7 @@ module.exports = function(grunt) {
 
 			}
 			,main : {
-				src: ['src/*.ts']
+				src: ['src/**/*.ts']
 				,outDir: 'dist'
 			}
 		}

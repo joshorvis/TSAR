@@ -1,11 +1,13 @@
 /// <reference types="requirejs" />
 /// <reference types="angular" />
 
-/// <amd dependency-path="angular" />
+/// <amd-dependency path="angular" />
+/// <amd-dependency path="testFeature.sampleWidget" />
 
-var angular = require("angular");
+import angular = require("angular");
 
-export var app = angular.module("mainApp",[],function(){});
+
+export var app = angular.module("mainApp",['testFeature'],function(){});
 
 app.directive("testing",function(){
     return{
