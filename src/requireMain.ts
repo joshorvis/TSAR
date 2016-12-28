@@ -1,6 +1,3 @@
-/// <reference path="_declare/require.d.ts" />
-/// <reference types="angular-resource" />
-/// <reference types="angular-ui-bootstrap" />
 
 require.config({
     baseUrl: './js',

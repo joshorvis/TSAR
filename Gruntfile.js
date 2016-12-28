@@ -20,10 +20,10 @@ module.exports = function(grunt) {
 			}
 			,'main': {
 				options: {
-					include: [ 'application' ]
-					,name: 'requireMain'
-					,mainConfigFile: 'dist/requireMain.js'
-					,out: 'dist/requireMain.js'
+					include: [ 'app' ]
+					,name: 'main'
+					,mainConfigFile: 'dist/main.js'
+					,out: 'dist/main.js'
 					,optimize: 'none'
 				}
 			}
