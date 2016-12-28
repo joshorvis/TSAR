@@ -1,9 +1,20 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json')
+		,ts: {
+			options: {
+				target: 'es5'
+				,module: 'amd'
+				
+			}
+			,main : {
+				src: ['src/**/*.ts']
+				,outDir: 'build'
+			}
+		}
 		,requirejs: {
 			options: {
-				baseUrl: './dist'
+				baseUrl: './build'
 				,paths: {
 					/* Remote refs */
 					'firebase': '//cdn.firebase.com/js/client/2.2.1/firebase'
@@ -26,28 +37,31 @@ module.exports = function(grunt) {
 				options: {
 					include: [ 'app' ]
 					,name: 'main'
-					,mainConfigFile: 'dist/main.js'
-					,out: 'dist/main.js'
+					,mainConfigFile: 'build/main.js'
+					,out: 'build/<%= pkg.name %>-variant-compiled.js'
 					,optimize: 'none'
 				}
 			}
 		}
-		,ts: {
+		,uglify: {
 			options: {
-				target: 'es5'
-				,module: 'amd'
-
+				// the banner is inserted at the top of the output
+				//banner: '/*! <%= pkg.name %> */\n'  //<%= grunt.template.today("dd-mm-yyyy") %>
+				banner: '/* Copyright 2016 NerdyHippie, LLC */\n'
+				
 			}
-			,main : {
-				src: ['src/**/*.ts']
-				,outDir: 'dist'
+			,main: {
+				files: {
+					'dist/<%= pkg.name %>-variant.min.js': 'build/<%= pkg.name %>-variant-compiled.js'
+				}
 			}
 		}
 	});
-
-	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	
 	grunt.loadNpmTasks('grunt-ts');
+	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask("build", ["ts:main","requirejs:main"]);
+	grunt.registerTask("build", ["ts:main","requirejs:main","uglify:main"]);
 
 };
