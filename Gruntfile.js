@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 				,module: 'amd'
 				
 			}
-			,main : {
+			,mainVariant : {
 				src: ['src/**/*.ts']
 				,outDir: 'build'
 			}
@@ -33,12 +33,12 @@ module.exports = function(grunt) {
 					,'testFeature.sampleWidget': 'testFeature/sampleWidget'
 				}
 			}
-			,'main': {
+			,'mainVariant': {
 				options: {
 					include: [ 'app' ]
 					,name: 'main'
 					,mainConfigFile: 'build/main.js'
-					,out: 'build/<%= pkg.name %>-variant-compiled.js'
+					,out: 'dist/<%= pkg.name %>-mainVariant.js'
 					,optimize: 'none'
 				}
 			}
@@ -50,18 +50,50 @@ module.exports = function(grunt) {
 				banner: '/* Copyright 2016 NerdyHippie, LLC */\n'
 				
 			}
-			,main: {
+			,mainVariant: {
 				files: {
-					'dist/<%= pkg.name %>-variant.min.js': 'build/<%= pkg.name %>-variant-compiled.js'
+					'dist/<%= pkg.name %>-mainVariant.min.js': 'dist/<%= pkg.name %>-mainVariant.js'
 				}
 			}
 		}
+		,cssmin: {
+			options: {
+				root: './'
+			}
+			,mainVariant: {
+				files: {
+					'dist/<%= pkg.name %>-mainVariant.min.css': ['css/main.css']
+				}
+			}
+		}
+		
+		,jshint: {
+			// define the files to lint
+			files: ['Gruntfile.js', 'src/**/*.ts', 'js/**/*.js'],
+			//files: ['js/app.js','js/baseModules/**/*.js','js/controllerModules/**/*.js','js/modules/**/*.js','js/directiveModules/**/*.js'],
+			// configure JSHint (documented at http://www.jshint.com/docs/)
+			options: {
+				// more options here if you want to override JSHint defaults
+				globals: {
+					jQuery: true,
+					console: true,
+					module: true
+				},
+				laxbreak: true,
+				laxcomma: true
+				,asi: true
+				,esversion: 6
+			}
+		}
 	});
-	
+
 	grunt.loadNpmTasks('grunt-ts');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask("build", ["ts:main","requirejs:main","uglify:main"]);
+	grunt.registerTask("build", ["ts:mainVariant","requirejs:mainVariant","uglify:mainVariant","cssmin:mainVariant"]);
+	grunt.registerTask("inspect",["jshint"]);
 
 };

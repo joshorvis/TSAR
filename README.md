@@ -7,3 +7,7 @@ TypeScript / Angular / RequireJS demo
 - Enable RequireJS plugin and provide a reference to the main config file
 **Not sure if this step is necessary*
 - Install Markdown Navigator plugin for .md support
+- Enable Webstorm LESS Compiler if not already enabled
+- Set up LESS profile for project
+    - Exclude: includes\\*.less
+

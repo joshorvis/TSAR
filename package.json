@@ -4,8 +4,8 @@
   "description": "Basic example of how to use TypeScript, Angular and RequireJS ",
   "main": "requireMain.js",
   "repository": {
-    "type": "git"
-    ,"url": "https://github.com/joshorvis/TSAR"
+    "type": "git",
+    "url": "https://github.com/joshorvis/TSAR"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,18 +14,13 @@
   "license": "ISC",
   "devDependencies": {
     "@types/angular": "^1.5.22",
-    "@types/angular-resource": "^1.5.8",
-    "@types/angular-ui-bootstrap": "^0.13.37",
     "@types/requirejs": "^2.1.28",
     "angular": "^1.6.1",
-    "angular-resource": "^1.6.1",
-    "angular-route": "^1.6.1",
-    "angular-ui-bootstrap": "^2.3.2",
     "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-ts": "^6.0.0-beta.3",
-    "jquery": "^3.1.1",
     "typescript": "^2.1.4"
   }
 }
