@@ -7,7 +7,7 @@ angular.module('testFeature')
         return{
             restrict: 'EA',
             link:function(scope,element,attrs) {
-                var htmlText = "Hello world #2";
+                let htmlText = "Hello world #2";
                 element.html(htmlText);
             }
         }

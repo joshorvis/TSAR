@@ -1,4 +1,3 @@
-/// <reference types="requirejs" />
 /// <reference types="angular" />
 
 /// <amd-dependency path="angular" />
@@ -6,14 +5,13 @@
 
 import angular = require("angular");
 
-
-export var app = angular.module("mainApp",['testFeature'],function(){});
+export let app = angular.module("mainApp",['testFeature'],function(){});
 
 app.directive("testing",function(){
     return{
         restrict: 'EA',
         link:function(scope,element,attrs) {
-            var htmlText = "Hello world";
+            let htmlText = "Hello world";
             element.html(htmlText);
         }
     }

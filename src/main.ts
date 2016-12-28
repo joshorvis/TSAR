@@ -15,7 +15,7 @@ require( [
 ], function(angular, app) {
     'use strict';
         // Because of RequireJS we need to bootstrap the app app manually
-        var $html = document.getElementsByTagName('body')[0];
+        let $html = document.getElementsByTagName('body')[0];
         angular.bootstrap($html, [app.app['name']]);
 
 });
