@@ -33006,9 +33006,9 @@ define('testFeature.sampleWidget',["require", "exports", "angular", "testFeature
     });
 });
 //# sourceMappingURL=sampleWidget.js.map;
-define('app',["require", "exports", "angular", "angular", "testFeature.sampleWidget"], function (require, exports, angular) {
+define('app',["require", "exports", "angular", "testFeature.sampleWidget"], function (require, exports, angular) {
     "use strict";
-    exports.app = angular.module("mainApp", ['testFeature'], function () { });
+    exports.app = angular.module("mainApp", ["testFeature"], function () { });
     exports.app.directive("testing", function () {
         return {
             restrict: 'EA',

@@ -1,6 +1,5 @@
 /// <reference types="angular" />
 
-/// <amd-dependency path="angular" />
 /// <amd-dependency path="testFeature.sampleWidget" />
 
 import angular = require("angular");
